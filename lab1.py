@@ -26,6 +26,11 @@ def rc4_encrypt(data):
     cipher = ARC4.new(key)
     ciphertext = cipher.encrypt(bytes(data, 'utf-8'))
     print(ciphertext)
+    plaintext = 'breaking rc4!'
+    ciphertext2 = cipher.encrypt(bytes(plaintext, 'utf-8'))
+    print(ciphertext2)
+    recovered_data = int.from_bytes(bytes(plaintext, 'utf-8'), "big") ^ int.from_bytes(ciphertext, "big") ^ int.from_bytes(ciphertext2, "big")
+    print(recovered_data)
 
 
 

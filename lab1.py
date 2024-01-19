@@ -21,7 +21,6 @@ def main():
     ctr_error_propagation_check(error_propagation_data)
     
 def aes_encrypt(data): 
-    # is this key 128 1s?
     bitstring = '1' * 128
     key = int(bitstring, 2).to_bytes(16, byteorder='big')
     initial_data = pad(bytes(data, 'utf-8'), AES.block_size)
